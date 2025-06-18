@@ -1,4 +1,4 @@
-version: '2'
+#version: '2'
 
 services:
   db:
@@ -11,7 +11,7 @@ services:
     ports:
       - "5431:5432"
     networks:
-      - gaia-attack-sniffer_mqtt-net
+      - mqtt-net
 
   cli:
     build: .
@@ -26,11 +26,11 @@ services:
     depends_on:
       - db
     networks:
-      gaia-attack-sniffer_mqtt-net:
-        ipv4_address: 172.18.0.20
+      mqtt-net:
+        #ipv4_address: 172.18.0.20
       
 networks:
-  gaia-attack-sniffer_mqtt-net:
+  mqtt-net:
     driver: bridge
     external: true
 
